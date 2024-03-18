@@ -7,6 +7,7 @@ import {
   NavDropdown,
   Navbar,
 } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -20,8 +21,13 @@ const Navigation = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">LOGIN</Nav.Link>
-            <Nav.Link href="#action2">JOIN</Nav.Link>
+            <Nav.Link>
+              {" "}
+              <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+                HOME
+              </Link>
+            </Nav.Link>
+            <Nav.Link href="#action2">LOGIN</Nav.Link>
             <NavDropdown title="MY PAGE" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">CART</NavDropdown.Item>
               <NavDropdown.Item href="#action4">ORDER</NavDropdown.Item>

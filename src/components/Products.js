@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import data from "../data";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [clothes] = useState(data);
@@ -11,7 +12,7 @@ const Products = () => {
       <StyledHeading>PRODUCTS</StyledHeading>
       <StyledContainer>
         {clothes.map((a, i) => {
-          return <Card clothes={clothes[i]} />;
+          return <Card clothes={clothes[i]} key={i} />;
         })}
       </StyledContainer>
     </>
@@ -20,12 +21,14 @@ const Products = () => {
 
 function Card(props) {
   return (
-    <ImageContainer>
-      <StyledImage src={props.clothes.img} />
-      <h4>{props.clothes.title}</h4>
-      <p>{props.clothes.price}</p>
-      <p>{props.clothes.content}</p>
-    </ImageContainer>
+    <Link to="/detail" style={{ textDecoration: "none", color: "inherit" }}>
+      <ImageContainer>
+        <StyledImage src={props.clothes.img} />
+        <h4>{props.clothes.title}</h4>
+        <p>{props.clothes.price}</p>
+        <p>{props.clothes.content}</p>
+      </ImageContainer>
+    </Link>
   );
 }
 
