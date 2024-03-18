@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import data from "../data";
 
 const Products = () => {
+  const [clothes] = useState(data);
+  console.log(clothes);
+
   return (
     <>
       <StyledHeading>PRODUCTS</StyledHeading>
       <StyledContainer>
         <ImageContainer>
-          <StyledImage src="//www.creamcheese.co.kr/web/product/medium/202403/899d12b0b28a688456a98c00070ee246.webp" />
-          <h4>상품명</h4>
-          <p>가격</p>
-          <p>상품설명</p>
+          <StyledImage src={clothes[0].img} />
+          <h4>{clothes[0].title}</h4>
+          <p>{clothes[0].price}</p>
+          <p>{clothes[0].content}</p>
         </ImageContainer>
         <ImageContainer>
-          <StyledImage src="//www.creamcheese.co.kr/web/product/medium/202401/e4f04be66dd3b64df48de9ced776ed56.webp" />
-          <h4>상품명</h4>
-          <p>가격</p>
-          <p>상품설명</p>
+          <StyledImage src={clothes[1].img} />
+          <h4>{clothes[1].title}</h4>
+          <p>{clothes[1].price}</p>
+          <p>{clothes[1].content}</p>
         </ImageContainer>
         <ImageContainer>
-          <StyledImage src="//www.creamcheese.co.kr/web/product/medium/202403/14f1b865a7834804568358e5cf221b75.webp" />
-          <h4>상품명</h4>
-          <p>가격</p>
-          <p>상품설명</p>
+          <StyledImage src={clothes[2].img} />
+          <h4>{clothes[2].title}</h4>
+          <p>{clothes[2].price}</p>
+          <p>{clothes[2].content}</p>
         </ImageContainer>
         <ImageContainer>
-          <StyledImage src="//www.creamcheese.co.kr/web/product/medium/202403/fbbbde2566688bd0f5b2c18c21d74377.webp" />
-          <h4>상품명</h4>
-          <p>가격</p>
-          <p>상품설명</p>
+          <StyledImage src={clothes[3].img} />
+          <h4>{clothes[3].title}</h4>
+          <p>{clothes[3].price}</p>
+          <p>{clothes[3].content}</p>
         </ImageContainer>
       </StyledContainer>
     </>
@@ -43,11 +47,12 @@ const StyledHeading = styled.h2`
 const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin: 32px auto 0;
+  margin: 30px auto 0;
 `;
 
 const ImageContainer = styled.div`
-  padding-left: 10px; /* 이미지 사이 간격 조정 */
+  width: 300px;
+  padding: 0 2px 0 0;
 `;
 
 const StyledImage = styled.img`

@@ -39,7 +39,7 @@ const StyledContainer = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  padding-left: 10px; /* 이미지 사이 간격 조정 */
+  padding: 0 10px 0 0;
 `;
 
 const StyledImage = styled.img`
