@@ -10,34 +10,24 @@ const Products = () => {
     <>
       <StyledHeading>PRODUCTS</StyledHeading>
       <StyledContainer>
-        <ImageContainer>
-          <StyledImage src={clothes[0].img} />
-          <h4>{clothes[0].title}</h4>
-          <p>{clothes[0].price}</p>
-          <p>{clothes[0].content}</p>
-        </ImageContainer>
-        <ImageContainer>
-          <StyledImage src={clothes[1].img} />
-          <h4>{clothes[1].title}</h4>
-          <p>{clothes[1].price}</p>
-          <p>{clothes[1].content}</p>
-        </ImageContainer>
-        <ImageContainer>
-          <StyledImage src={clothes[2].img} />
-          <h4>{clothes[2].title}</h4>
-          <p>{clothes[2].price}</p>
-          <p>{clothes[2].content}</p>
-        </ImageContainer>
-        <ImageContainer>
-          <StyledImage src={clothes[3].img} />
-          <h4>{clothes[3].title}</h4>
-          <p>{clothes[3].price}</p>
-          <p>{clothes[3].content}</p>
-        </ImageContainer>
+        {clothes.map((a, i) => {
+          return <Card clothes={clothes[i]} />;
+        })}
       </StyledContainer>
     </>
   );
 };
+
+function Card(props) {
+  return (
+    <ImageContainer>
+      <StyledImage src={props.clothes.img} />
+      <h4>{props.clothes.title}</h4>
+      <p>{props.clothes.price}</p>
+      <p>{props.clothes.content}</p>
+    </ImageContainer>
+  );
+}
 
 const StyledHeading = styled.h2`
   margin-top: 90px;
