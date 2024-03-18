@@ -8,7 +8,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 
-const Banner = () => {
+const Navigation = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -42,4 +42,4 @@ const Banner = () => {
   );
 };
 
-export default Banner;
+export default Navigation;
