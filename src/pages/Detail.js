@@ -10,11 +10,12 @@ function Detail(props) {
   // 그래서 현재 url에 입력한 번호와 같은 번호를 가진 상품을 찾아서 데이터바인딩 해달라고 코드짜면 됨
   // clothes 상품 데이터 안에 {id: 0} 이런식으로 저장되어있음
   //array자료.find(()=>{ return 조건식 }) 이렇게 쓰면 조건식에 맞는 자료를 찾아서 이 자리에 남김
-  // x: array자료에 있던 자료
-  // selectDetail = props.clothes[id]
   let selectDetail = props.clothes.find(function (x) {
+    // x: array자료에 있던 자료
+    // array자료.id == url에 입력한 번호
     return x.id == id;
   });
+  // selectDetail = props.clothes[id]
 
   return (
     <div className="container">
