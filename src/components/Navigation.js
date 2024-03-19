@@ -7,9 +7,10 @@ import {
   NavDropdown,
   Navbar,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navigation = () => {
+  let navigate = useNavigate();
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -21,11 +22,12 @@ const Navigation = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link>
-              {" "}
-              <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-                HOME
-              </Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              HOME
             </Nav.Link>
             <Nav.Link href="#action2">LOGIN</Nav.Link>
             <NavDropdown title="MY PAGE" id="navbarScrollingDropdown">
