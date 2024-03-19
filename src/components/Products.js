@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import data from "../data";
 import { Link } from "react-router-dom";
 
-const Products = () => {
-  const [clothes] = useState(data);
-  console.log(clothes);
-
+const Products = ({ clothes }) => {
+  // const Products = (props) => {
+  //   const { clothes } = props; // 객체 분해
+  //   // 또는 const clothes = props.clothes; 로도 사용 가능
   return (
     <>
       <StyledHeading>PRODUCTS</StyledHeading>
@@ -21,7 +20,10 @@ const Products = () => {
 
 function Card(props) {
   return (
-    <Link to="/detail" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link
+      to={`/detail/${props.clothes.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
       <ImageContainer>
         <StyledImage src={props.clothes.img} />
         <h4>{props.clothes.title}</h4>

@@ -1,19 +1,21 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-function Detail() {
+function Detail(props) {
+  // 유저가 URL파라미터에 입력한거 가져오려면 useParams() 사용
+  let { id } = useParams();
+  console.log(id);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-6">
-          <img
-            src="https://codingapple1.github.io/shop/shoes1.jpg"
-            width="100%"
-          />
+          <img src={props.clothes[id].img} width="70%" />
         </div>
         <div className="col-md-6">
-          <h4 className="pt-5">상품명</h4>
-          <p>상품설명</p>
-          <p>120000원</p>
+          <h4 className="pt-5">{props.clothes[id].title}</h4>
+          <p>{props.clothes[id].content}</p>
+          <p>{props.clothes[id].price} 원</p>
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
