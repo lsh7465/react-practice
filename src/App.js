@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Products from "./components/Products";
-import Select from "./components/Select";
 import Detail from "./pages/Detail";
+import Select from "./components/Select";
 import { Routes, Route } from "react-router-dom";
 import data from "./data";
 
