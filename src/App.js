@@ -6,6 +6,7 @@ import Detail from "./pages/Detail";
 import Select from "./components/Select";
 import { Routes, Route } from "react-router-dom";
 import data from "./data";
+import axios from "axios";
 
 function App() {
   const [clothes] = useState(data);
@@ -22,6 +23,21 @@ function App() {
               <div className="main-bg"></div>
               <Select />
               <Products clothes={clothes} />
+              <button
+                style={{ display: "block", margin: "auto" }}
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data2.json")
+                    .then((result) => {
+                      console.log(result.data);
+                    })
+                    .catch(() => {
+                      console.log("실패");
+                    });
+                }}
+              >
+                버튼
+              </button>
             </>
           }
         />
