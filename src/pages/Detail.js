@@ -22,6 +22,7 @@ function Detail(props) {
   const [alertBtn, setAlertBtn] = useState(true);
   const [num, setNum] = useState("");
   const [탭, 탭변경] = useState(0);
+  let [fade2, setFade2] = useState("");
 
   // useEffect(()=>{}) mount(화면에 데이터가 나타나는 것을 의미), update시 실행됨/ 제렌더링마다 코드실행하고 싶으면
   // useEffect(()=>{},[]) mount시 실행됨/ mount시 1회 코드실행하고 싶으면
@@ -47,8 +48,15 @@ function Detail(props) {
     }
   }, [num]);
 
+  useEffect(() => {
+    setFade2("end");
+    return () => {
+      setFade2("");
+    };
+  }, []);
+
   return (
-    <div className="container">
+    <div className={"container start " + fade2}>
       {alertBtn === true ? (
         <div className="alert alert-warning">2초이내 구매시 할인</div>
       ) : null}
@@ -110,13 +118,28 @@ function Detail(props) {
         </Nav.Item>
       </Nav>
       {/* Detail => TabContent props 전송 */}
-      <TapContent 탭={탭} />
+      <TabContent 탭={탭} />
     </div>
   );
 }
 
-function TapContent({ 탭 }) {
-  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭];
+function TabContent({ 탭 }) {
+  let [fade, setFade] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFade("end");
+    }, 100);
+    return () => {
+      setFade("");
+    };
+  }, [탭]);
+
+  return (
+    <div className={"start " + fade}>
+      {[<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭]}
+    </div>
+  );
 }
 
 export default Detail;
