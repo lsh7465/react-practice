@@ -11,7 +11,7 @@ const Products = ({ clothes }) => {
       <StyledHeading>PRODUCTS</StyledHeading>
       <StyledContainer>
         {clothes.map((a, i) => {
-          return <Card clothes={clothes[i]} key={i} />;
+          return <Card clothes={clothes[i]} key={clothes[i]} />;
         })}
       </StyledContainer>
     </>

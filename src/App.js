@@ -9,7 +9,7 @@ import data from "./data";
 import axios from "axios";
 
 function App() {
-  const [clothes] = useState(data);
+  const [clothes,setClothes] = useState(data);
   console.log(clothes);
 
   return (
@@ -30,6 +30,8 @@ function App() {
                     .get("https://codingapple1.github.io/shop/data2.json")
                     .then((result) => {
                       console.log(result.data);
+                      let copy = [...clothes, ...result.data]
+                      setClothes(copy)
                     })
                     .catch(() => {
                       console.log("실패");
