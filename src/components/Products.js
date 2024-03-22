@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Products = ({ clothes }) => {
+  // props는 React 컴포넌트에 전달되는 속성(Property)들을 담고 있는 객체
+  // { clothes }: props 객체에서 clothes 속성을 추출한 것
   // const Products = (props) => {
   //   const { clothes } = props; // 객체 분해
   //   // 또는 const clothes = props.clothes; 로도 사용 가능
