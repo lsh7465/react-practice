@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 function Detail(props) {
@@ -20,6 +21,7 @@ function Detail(props) {
   const [count, setCount] = useState(0);
   const [alertBtn, setAlertBtn] = useState(true);
   const [num, setNum] = useState("");
+  const [탭, 탭변경] = useState(0);
 
   // useEffect(()=>{}) mount(화면에 데이터가 나타나는 것을 의미), update시 실행됨/ 제렌더링마다 코드실행하고 싶으면
   // useEffect(()=>{},[]) mount시 실행됨/ mount시 1회 코드실행하고 싶으면
@@ -33,7 +35,7 @@ function Detail(props) {
       // unmount시 1회 코드실행하고 싶으면
       clearTimeout(a);
     };
-  },[count]);
+  }, [count]);
   // []: 의존성 배열(Dependency)
   // [count]: count의 값이 변할때만 함수 실행(mount시, count라는 state가 변할 때 실행됨)
   // []: 디펜던시가 없으면 업데이트될때 함수실행 안됨, 컴포넌트 mount시 1회만 실행하고 싶으면 빈칸으로.
@@ -43,7 +45,7 @@ function Detail(props) {
     if (isNaN(num) === true) {
       alert("숫자만 입력해주세요");
     }
-  },[num]);
+  }, [num]);
 
   return (
     <div className="container">
@@ -74,8 +76,47 @@ function Detail(props) {
           <button className="btn btn-danger">주문하기</button>
         </div>
       </div>
+
+      <Nav variant="tabs" defaultActiveKey="link0">
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              탭변경(0);
+            }}
+            eventKey="link0"
+          >
+            버튼0
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              탭변경(1);
+            }}
+            eventKey="link1"
+          >
+            버튼1
+          </Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link
+            onClick={() => {
+              탭변경(2);
+            }}
+            eventKey="link2"
+          >
+            버튼2
+          </Nav.Link>
+        </Nav.Item>
+      </Nav>
+      {/* Detail => TabContent props 전송 */}
+      <TapContent 탭={탭} />
     </div>
   );
+}
+
+function TapContent({ 탭 }) {
+  return [<div>내용0</div>, <div>내용1</div>, <div>내용2</div>][탭];
 }
 
 export default Detail;
