@@ -7,9 +7,10 @@ import Select from "./components/Select";
 import { Routes, Route } from "react-router-dom";
 import data from "./data";
 import axios from "axios";
+import Cart from "./pages/Cart";
 
 function App() {
-  const [clothes,setClothes] = useState(data);
+  const [clothes, setClothes] = useState(data);
   console.log(clothes);
 
   return (
@@ -30,8 +31,8 @@ function App() {
                     .get("https://codingapple1.github.io/shop/data2.json")
                     .then((result) => {
                       console.log(result.data);
-                      let copy = [...clothes, ...result.data]
-                      setClothes(copy)
+                      let copy = [...clothes, ...result.data];
+                      setClothes(copy);
                     })
                     .catch(() => {
                       console.log("실패");
@@ -46,6 +47,7 @@ function App() {
         {/* 페이지 여러개 만들고싶으면 :URL파라미터 사용 */}
         <Route path="/detail/:id" element={<Detail clothes={clothes} />} />
         <Route path="*" element={<div>존재하지 않는 페이지</div>} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

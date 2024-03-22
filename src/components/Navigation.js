@@ -31,7 +31,13 @@ const Navigation = () => {
             </Nav.Link>
             <Nav.Link href="#action2">LOGIN</Nav.Link>
             <NavDropdown title="MY PAGE" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">CART</NavDropdown.Item>
+              <NavDropdown.Item
+                onClick={() => {
+                  navigate("/cart");
+                }}
+              >
+                CART
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action4">ORDER</NavDropdown.Item>
             </NavDropdown>
           </Nav>
