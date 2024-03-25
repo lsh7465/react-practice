@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addItem } from "../store/CartSlice";
 
 function Detail(props) {
   // 유저가 URL파라미터에 입력한거 가져오려면 useParams() 사용
@@ -55,6 +57,8 @@ function Detail(props) {
     };
   }, []);
 
+  const dispatch = useDispatch();
+
   return (
     <div className={"container start " + fade2}>
       {alertBtn === true ? (
@@ -81,7 +85,15 @@ function Detail(props) {
           <h4 className="pt-5">{selectDetail.title}</h4>
           <p>{selectDetail.content}</p>
           <p>{selectDetail.price} 원</p>
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              dispatch(addItem(selectDetail));
+              console.log("Selected Detail:", selectDetail);
+            }}
+          >
+            주문하기
+          </button>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ let data = [
     content:
       "어디에도 없는 크치마 단독진행 데님 블루종! 이유있는 #단독진행 한정판매로 소장가치up",
     price: 43900,
+    count: 1,
   },
 
   {
@@ -14,6 +15,7 @@ let data = [
     title: "셔츠 원피스",
     content: "#비침최소화 #기장추가까지 #하트버튼 #문의대란",
     price: 43900,
+    count: 1,
   },
 
   {
@@ -22,6 +24,7 @@ let data = [
     title: "트렌치코트",
     content: "크치 봄 아우터 중에 가장 인기가 많은 하프트렌치",
     price: 84600,
+    count: 1,
   },
 
   {
@@ -30,6 +33,7 @@ let data = [
     title: "니트 가디건",
     content: "매년 주문1위 조합 #울가디건 #인생셔츠(단독)",
     price: 44000,
+    count: 1,
   },
 ];
 export default data;
